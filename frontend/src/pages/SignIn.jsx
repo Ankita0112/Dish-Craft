@@ -51,7 +51,11 @@ export default function SignIn() {
 
       {/* <img src="https://www.svgrepo.com/show/86031/cutlery.svg" className="h-16 pt-6 pl-4" alt="Flowbite Logo" /> */}
       <div className='p-5 max-w-96 mx-auto'>
-      <h1 className='text-3xl text-white text-center font-semibold mx-auto mt-28 mb-7'>Sign In</h1>
+      <div className="flex items-center mt-16 mb-12 space-x-1 rtl:space-x-reverse">
+          <img src="https://www.svgrepo.com/show/86031/cutlery.svg" className="h-24" alt="Flowbite Logo" />
+          <span className="text-5xl text-white font-semibold whitespace-nowrap dark:text-white">Dish Craft</span>
+        </div>
+      {/* <h1 className='text-3xl text-white text-center font-semibold mx-auto mt-28 mb-7'>Sign In</h1> */}
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         {/* <input
           type='text'
@@ -84,9 +88,9 @@ export default function SignIn() {
         <OAuth/>
       </form>
       <div className='flex gap-2 mt-5'>
-        <p className='text-gray-300'>Have an account?</p>
-        <Link to='/sign-in'>
-          <span className='text-blue-500'>Sign in</span>
+        <p className='text-gray-300'>Don't have an account?</p>
+        <Link to='/sign-up'>
+          <span className='text-blue-500'>Sign up</span>
         </Link>
       </div>
       <p className='text-red-700 mt-5'>{error && 'Something went wrong!'}</p>

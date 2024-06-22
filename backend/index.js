@@ -5,6 +5,7 @@ import recipeRoute from './routes/recipeRoute.js';
 import userRoute from './routes/userRoute.js';
 import authRoute from './routes/authRoute.js';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 dotenv.config()
 
@@ -19,15 +20,17 @@ mongoose
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
 
 app.use('/backend/user', userRoute);
 app.use('/backend/recipes', recipeRoute);
 app.use('/backend/auth', authRoute)
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
-});
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
@@ -37,7 +40,7 @@ app.use((err, req, res, next) => {
       message,
       statusCode,
     });
-  });
+});
 
 
 

@@ -9,6 +9,7 @@ import MyRecipe from './pages/MyRecipe';
 import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import PrivateRoute from './components/PrivateRoute';
 
 
 
@@ -24,7 +25,9 @@ export default function App() {
         <Route path='/favourites' element={<Favourites />} />
         <Route path='/myrecipe' element={<MyRecipe />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/profile' element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
