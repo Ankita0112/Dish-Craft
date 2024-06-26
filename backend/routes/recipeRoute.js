@@ -8,7 +8,6 @@ const router = express.Router();
 // Dish Craft Recipe
 router.get("/",async(req,res)=>{
 try{
-    console.log("reached in backend");
     const recipes = await Recipe.find({});
 
     return res.status(200).json({
