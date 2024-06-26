@@ -1,28 +1,3 @@
-// import React from 'react'
-// import { useSelector } from 'react-redux';
-
-
-// export default function Create() {
-//     const { currentUser, loading, error} = useSelector((state) => state.user);
-//     // console.log(currentUser.userRecipe)
-//     var temp = currentUser.userRecipe
-//     temp.push({
-//         "_id": {
-//           "$oid": "6670bb2fbfffc228b54913fb"
-//         },
-//         "id": 5,
-//         "Title": "Warm Comfort",
-//         "Ingredients": "['2 chamomile tea bags', '1½ oz. reposado tequila', '¾ oz. fresh lemon juice', '1 Tbsp. agave nectar']",
-//         "Instructions": "Place 2 chamomile tea bags in a heatsafe vessel, such as a large liquid measuring cup. Pour in 1 ½ cups boiling water, and let steep 5 minutes, then remove tea bags.\nAdd 1 ½ oz. reposado tequila, ¾ oz. fresh lemon juice, and 1 Tbsp. agave nectar and stir until incorporated. Pour into a 16-ounce insulated mug (or two smaller 8-ounce mugs) and drink hot.",
-//         "Image_Name": "warm-comfort-tequila-chamomile-toddy",
-//         "Cleaned_Ingredients": "['2 chamomile tea bags', '1½ oz. reposado tequila', '¾ oz. fresh lemon juice', '1 Tbsp. agave nectar']"
-//       })
-//     console.log(temp)
-//   return (
-//     <div>Create</div>
-//   )
-// }
-
 import React, { useState } from 'react';
 // import BackButton from '../BackButton';
 import { Link } from 'react-router-dom';
