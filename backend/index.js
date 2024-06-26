@@ -6,6 +6,7 @@ import userRoute from './routes/userRoute.js';
 import authRoute from './routes/authRoute.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import path from "path";
 
 dotenv.config()
 
@@ -18,7 +19,15 @@ mongoose
     console.log(err);
   });
 
+const __dirname = path.resolve();
+
 const app = express();
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+});
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
