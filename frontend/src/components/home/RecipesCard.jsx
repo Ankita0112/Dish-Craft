@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const RecipesCard = ({recipes}) => {
     
-    const [recipeInfo , setRecipeInfo] = useState(recipes.slice(0,169));
+    const [recipeInfo , setRecipeInfo] = useState(recipes.slice(0,160));
     const [pageNumber , setPageNumber] = useState(0);
     const recipePerPage = 24;
     const recipeVisited = pageNumber * recipePerPage;
