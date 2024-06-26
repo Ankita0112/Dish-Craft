@@ -1,17 +1,13 @@
-// import React from 'react';
-// // import { Link } from 'react-router-dom';
-// import { useState } from 'react';
-// import RecipeSingleCard from './RecipeSingleCard';
-// // import ReactPaginate from 'react-paginate';
+import ReactPaginate from 'react-paginate';
 import RecipeSingleCard from './RecipeSingleCard'
 import React from 'react';
 import { useState } from 'react';
 
 const RecipesCard = ({recipes}) => {
-    console.log(recipes.Title);
-    const [recipeInfo , setRecipeInfo] = useState(recipes.slice(30,60));
+    
+    const [recipeInfo , setRecipeInfo] = useState(recipes.slice(31,200));
     const [pageNumber , setPageNumber] = useState(0);
-    const recipePerPage = 50;
+    const recipePerPage = 24;
     const recipeVisited = pageNumber * recipePerPage;
 
     const displayRecipe = recipeInfo
@@ -34,7 +30,7 @@ const RecipesCard = ({recipes}) => {
             <div className="grid grid-cols-4 pr-12">
                 {displayRecipe}
             </div>
-            {/* <div className='flex justify-center'>
+            <div className='flex justify-center'>
               <ReactPaginate
                 previousLabel={"Previous"}
                 nextLabel={"Next"}
@@ -48,7 +44,7 @@ const RecipesCard = ({recipes}) => {
                 activeClassName='flex items-center px-4 h-10 text-blue-600 border border-gray-900 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white'
              
             />  
-            </div> */}
+            </div>
             
         </div>
         

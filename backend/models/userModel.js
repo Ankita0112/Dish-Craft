@@ -22,12 +22,13 @@ const userSchema = new mongoose.Schema(
         'https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg',
     },
     userRecipe: {
-      type: Array,
+      type: Object,
       default: null
     },
     favourites: {
-      type: Array,
+      type: Object,
       default: null
+
     }
   },
   { timestamps: true }

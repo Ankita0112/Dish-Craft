@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import { Link , useNavigate} from 'react-router-dom'
 import axios from 'axios';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
 import {
   signInStart,
   signInSuccess,
@@ -48,22 +50,16 @@ export default function SignIn() {
 
   return (
     <div className='bg-black min-h-screen'>
+      <Link to={`/`}>
+        <ArrowBackIosNewIcon sx={{ fontSize: 30 }} className='text-white m-3 ml-4 mt-6'/>
+      </Link>
 
-      {/* <img src="https://www.svgrepo.com/show/86031/cutlery.svg" className="h-16 pt-6 pl-4" alt="Flowbite Logo" /> */}
       <div className='p-5 max-w-96 mx-auto'>
-      <div className="flex items-center mt-16 mb-12 space-x-1 rtl:space-x-reverse">
+      <div onClick={()=>{navigate('/')}} className="flex items-center mt-8 mb-12 space-x-1 rtl:space-x-reverse">
           <img src="https://www.svgrepo.com/show/86031/cutlery.svg" className="h-24" alt="Flowbite Logo" />
           <span className="text-5xl text-white font-semibold whitespace-nowrap dark:text-white">Dish Craft</span>
         </div>
-      {/* <h1 className='text-3xl text-white text-center font-semibold mx-auto mt-28 mb-7'>Sign In</h1> */}
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        {/* <input
-          type='text'
-          placeholder='Username'
-          id='username'
-          className='bg-black border-2 border-white text-white p-3 rounded-lg'
-          onChange={handleChange}
-        /> */}
         <input
           type='email'
           placeholder='Email'
