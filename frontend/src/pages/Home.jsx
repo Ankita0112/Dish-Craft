@@ -15,13 +15,13 @@ const Home = () => {
     setLoading(true);
     async function getData(){
       try{
-        const res = await fetch('/backend/recipes',{
+        const res = await fetch('/recipes',{
           method:'GET',
           headers: {
             'Content-Type': 'application/json',
           },
         })
-        console.log("hi:  ",res);
+        console.log("res home:  ",res);
         const data = await res.json()
         setLoading(false)
         setRecipes(data.data)

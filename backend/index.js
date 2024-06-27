@@ -41,7 +41,7 @@ app.listen(3000, () => {
 });
 
 app.use('/backend/user', userRoute);
-app.use('/backend/recipes', recipeRoute);
+app.use('recipes', recipeRoute);
 app.use('/backend/auth', authRoute)
 
 
