@@ -39,7 +39,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-    .get('/recipes')
+    .get('/backend/recipes')
     .then((res)=>{
       setRecipes(res.data.data);
       console.log(res);
