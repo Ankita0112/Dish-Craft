@@ -11,19 +11,27 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
   useEffect(() => {
     setLoading(true);
-    axios
-      .get('http://localhost:3000/backend/recipes')
-      .then((res)=>{
-        setRecipes(res.data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
+    async function getData(){
+      try{
+        const res = await fetch('/backend/recipes',{
+          method:'GET',
+        })
+        const data = await res.json()
+        setLoading(false)
+        setRecipes(data.data)
+        // console.log(data.data);
+
+      }catch(error){
         console.log(error);
-        setLoading(false);
-      });
+      }
+    }
+    getData()
+
   }, []);
+
   return (
     <div>
         <Header/>

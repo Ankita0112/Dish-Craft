@@ -87,6 +87,7 @@ const Edit = () => {
     console.log("Recipe added successfully")
     console.log(data1);
     dispatch(updateUserSuccess(data));
+    setLoading(false)
     setUpdateSuccess(true);
     navigate('/myrecipe')
     } catch (error) {
@@ -105,7 +106,7 @@ const Edit = () => {
         <Link to={`/myrecipe`}>
         <ArrowBackIosNewIcon sx={{ fontSize: 30 }} className='text-black m-3'/>
         </Link>
-        {loading1 ? <Spinner /> : ''}
+        {/* {loading1 ? <Spinner /> : ''} */}
         <div className='flex flex-col border-2 bg-white border-black rounded-xl w-[600px] p-4 mx-auto'>
           <div className='my-4'>
             <label className='text-xl mr-4 text-gray-500'>Title</label>

@@ -10,19 +10,25 @@ const ShowRecipe = () => {
   const [loading,setLoading] = useState(false);
   const {id} = useParams();
 
-  useEffect(()=>{
+  useEffect(() => {
     setLoading(true);
-    axios
-      .get(`http://localhost:3000/backend/recipes/${id}`)
-      .then((res)=>{
-        setRecipe(res.data);
-        setLoading(false);
-      })
-      .catch((error)=>{
+    async function getData(){
+      try{
+        const res = await fetch(`/backend/recipes/${id}`,{
+          method:'GET',
+        })
+        const data = await res.json()
+        setLoading(false)
+        setRecipe(data)
+        // console.log(data);
+
+      }catch(error){
         console.log(error);
-        setLoading(false);
-      })
-  }, [])
+      }
+    }
+    getData()
+
+  }, []);
 
 
   return (
