@@ -2,55 +2,27 @@ import React, {useEffect,useState} from 'react';
 import axios from 'axios';
 import RecipesCard from '../components/home/RecipesCard';
 import Spinner from '../components/Spinner';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import data from '../assets/DishCraft.recipes';
 // import { Link} from "react-router-dom";
 
 
-
 const Home = () => {
-  const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
+  var n = data.length
+  let i;
+  for(i = 0;i<n;i++){
+    if ((data[i].id) == 32){
+        console.log("hi");
+        console.log(data[i]);
+        break
+        // recipe = currentUser.userRecipe[i]
+    }
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   async function getData(){
-  //     try{
-  //       const res = await fetch('/recipes',{
-  //         method:'GET',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //       })
-  //       console.log("res home:  ",res);
-  //       const data = await res.json()
-  //       setLoading(false)
-  //       setRecipes(data.data)
-        
-
-  //     }catch(error){
-  //       console.log(error);
-  //     }
-      
-  //   }
-  //   getData()
-  //   }, []);
+  }
+  console.log(data);
 
 
-  useEffect(() => {
-    setLoading(true);
-    axios
-    .get('/backend/recipes')
-    .then((res)=>{
-      setRecipes(res.data.data);
-      console.log(res);
-      setLoading(false);
-    })
-    .catch((error) => {
-      console.log(error);
-      setLoading(false);
-    });
-
-  }, []);
 
   return (
     <div>
@@ -62,7 +34,7 @@ const Home = () => {
           </div>
             
         ) : (
-            <RecipesCard recipes={recipes}/>
+            <RecipesCard recipes={data}/>
         )}
 
     </div>

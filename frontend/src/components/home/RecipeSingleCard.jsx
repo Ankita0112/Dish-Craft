@@ -36,11 +36,11 @@ const RecipeSingleCard = ({recipe}) => {
             let num = (currentUser.favourites).length
             for(i = 0;i<num;i++){
                 curr.push(currentUser.favourites[i])
-                idList.push((currentUser.favourites[i])._id)
+                idList.push((currentUser.favourites[i]).id)
             }
         }   
     }
-    const [status, setStatus] = useState(idList.includes(recipe._id));
+    const [status, setStatus] = useState(idList.includes(recipe.id));
     // if (idList.includes(recipe._id)){
     //     setStatus(true)
 
@@ -139,10 +139,10 @@ const RecipeSingleCard = ({recipe}) => {
         <div key={recipe._id} className=" max-w-sm relative mt-10 h-80 ms-12 bg-gray-800 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             
             <a href="#">
-                <img className="rounded-t-lg object-cover h-48 w-full" src={"Food_Images/"+recipe.Image_Name+".jpg"} alt="" />
+                <img className="rounded-t-lg object-cover h-48 w-full" src={"src/assets/Food_Images/"+recipe.Image_Name+".jpg"} alt="" />
             </a>
             <div className="p-5 ">
-                <Link to={`/recipes/details/${recipe._id}`}>  
+                <Link to={`/recipes/details/${recipe.id}`}>  
                     <div 
    
                     className="transition hover:duration-150 hover:text-blue-600 mb-2 text-2xl font-bold tracking-tight text-white dark:text-white"

@@ -4,30 +4,48 @@ import { useParams } from 'react-router-dom';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { Link } from 'react-router-dom';
 import Spinner from '../components/Spinner';
+import data from '../assets/DishCraft.recipes';
 
 const ShowFav = () => {
-  const [recipe, setRecipe] = useState({});
+  // const [recipe, setRecipe] = useState({});
   const [loading,setLoading] = useState(false);
   const {id} = useParams();
+  var recipe = []
 
 
-  useEffect(() => {
-    setLoading(true);
-    async function getData(){
-      axios.get(`/backend/recipes/${id}`)
-      .then((res)=>{
-        // console.log(res.data.data);
-        setRecipe(res.data)
-        setLoading(false)
-      })
-      .catch((error)=>{
-        console.log(error);
-        setLoading(false)
-      })
+
+  var n = data.length
+  let i;
+  for(i = 0;i<n;i++){
+    if ((data[i].id) == id){
+      recipe = data[i];
+      break;
     }
-    getData()
 
-  }, []);
+  }
+
+
+
+
+
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   async function getData(){
+  //     axios.get(`/backend/recipes/${id}`)
+  //     .then((res)=>{
+  //       // console.log(res.data.data);
+  //       setRecipe(res.data)
+  //       setLoading(false)
+  //     })
+  //     .catch((error)=>{
+  //       console.log(error);
+  //       setLoading(false)
+  //     })
+  //   }
+  //   getData()
+
+  // }, []);
 
 
   return (
@@ -47,7 +65,7 @@ const ShowFav = () => {
                   
                   <div className='my-4'>
                       <span className='text-xl mr-4 font-semibold italic'>Ingredients : </span>
-                      <span className='text-gray-700'>{recipe.Ingredients}</span>
+                      <span className='text-gray-700'>{(recipe.Ingredients).slice(1,-1)}</span>
                   </div>
                   <div className='my-4'>
                       <span className='text-xl mr-4 font-semibold italic'>Instructions : </span>
