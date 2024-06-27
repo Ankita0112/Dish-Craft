@@ -18,6 +18,7 @@ const Home = () => {
     .get('/backend/recipes')
     .then((res)=>{
       setRecipes(res.data.data);
+      console.log(res);
       setLoading(false);
     })
     .catch((error) => {
