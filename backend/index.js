@@ -7,6 +7,7 @@ import authRoute from './routes/authRoute.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import path from "path";
+import bodyParser from 'body-parser';
 
 dotenv.config()
 
@@ -23,14 +24,16 @@ const __dirname = path.resolve();
 
 const app = express();
 app.use(cors());
+app.use(express.json());
+app.use(cookieParser());
+app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
-app.use(express.json());
-app.use(cookieParser());
+
 
 
 app.listen(3000, () => {
