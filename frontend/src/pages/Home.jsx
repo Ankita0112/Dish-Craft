@@ -24,7 +24,7 @@ const Home = () => {
         // const data = await res.json()
         setLoading(false)
         setRecipes(res.data)
-        console.log(res);
+        console.log("hi:  ",res);
 
       }catch(error){
         console.log(error);
