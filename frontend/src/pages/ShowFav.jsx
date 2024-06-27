@@ -14,18 +14,16 @@ const ShowFav = () => {
   useEffect(() => {
     setLoading(true);
     async function getData(){
-      try{
-        const res = await fetch(`/backend/recipes/${id}`,{
-          method:'GET',
-        })
-        const data = await res.json()
+      axios.get(`/backend/recipes/${id}`)
+      .then((res)=>{
+        // console.log(res.data.data);
+        setRecipe(res.data)
         setLoading(false)
-        setRecipe(data)
-        // console.log(data);
-
-      }catch(error){
+      })
+      .catch((error)=>{
         console.log(error);
-      }
+        setLoading(false)
+      })
     }
     getData()
 

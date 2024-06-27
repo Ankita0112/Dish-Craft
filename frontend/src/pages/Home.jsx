@@ -15,21 +15,16 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     async function getData(){
-      try{
-        const res = await fetch('/backend/recipes',{
-          method:'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        const data = await res.json()
+      axios.get('/backend/recipes')
+      .then((res)=>{
+        // console.log(res.data.data);
+        setRecipes(res.data.data)
         setLoading(false)
-        setRecipes(data.data)
-        // console.log(data.data);
-
-      }catch(error){
+      })
+      .catch((error)=>{
         console.log(error);
-      }
+        setLoading(false)
+      })
     }
     getData()
 
