@@ -18,6 +18,9 @@ const Home = () => {
       try{
         const res = await fetch('/backend/recipes',{
           method:'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         })
         const data = await res.json()
         setLoading(false)
