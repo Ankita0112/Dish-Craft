@@ -11,22 +11,45 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
   useEffect(() => {
     setLoading(true);
-    axios
-    .get('/backend/recipes')
-    .then((res)=>{
-      setRecipes(res.data.data);
-      console.log(res);
-      setLoading(false);
-    })
-    .catch((error) => {
-      console.log(error);
-      setLoading(false);
-    });
+    async function getData(){
+      try{
+        const res = await fetch('/backend/recipes',{
+          method:'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        // const data = await res.json()
+        setLoading(false)
+        setRecipes(res.data)
+        console.log(res);
 
-  }, []);
+      }catch(error){
+        console.log(error);
+      }
+      
+    }
+    getData()
+    }, []);
+
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios
+  //   .get('/backend/recipes')
+  //   .then((res)=>{
+  //     setRecipes(res.data.data);
+  //     console.log(res);
+  //     setLoading(false);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //     setLoading(false);
+  //   });
+
+  // }, []);
 
   return (
     <div>
