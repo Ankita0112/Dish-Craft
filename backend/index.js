@@ -23,7 +23,7 @@ mongoose
 const __dirname = path.resolve();
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
@@ -33,7 +33,7 @@ app.get('*', (req, res) => {
 });
 app.use(express.json());
 app.use(cookieParser());
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
 
 
 app.listen(3000, () => {

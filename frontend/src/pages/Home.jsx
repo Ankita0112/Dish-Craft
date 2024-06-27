@@ -14,29 +14,16 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    async function getData(){
-      try{
-        const res = await fetch('/backend/recipes',{
-          method:'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          // headers: {
-          //   'Content-Type': 'application/json',
-          // },
-        })
-        const data = await res.json()
-        setLoading(false)
-        setRecipes(data.data)
-        console.log(data.data);
-
-      }catch(error){
-        setLoading(false)
-        console.log(error);
-      }
-    }
-    getData()
+    axios
+    .get('http://localhost:3000/backend/recipes')
+    .then((res)=>{
+      setRecipes(res.data.data);
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.log(error);
+      setLoading(false);
+    });
 
   }, []);
 
