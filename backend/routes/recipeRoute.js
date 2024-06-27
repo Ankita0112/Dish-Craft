@@ -10,7 +10,7 @@ router.get("/",async(req,res)=>{
 try{
     const recipes = await Recipe.find({});
 
-    return res.status(200).json({
+    res.status(200).json({
     count:recipes.length,
     data:recipes
     });
@@ -27,7 +27,7 @@ try{
 
     const recipe = await Recipe.findById(id);
 
-    return res.status(200).json(recipe);
+    res.status(200).json(recipe);
 } catch(error){
     console.log(error.message);
     res.status(500).send({message: error.message});
