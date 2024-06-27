@@ -11,46 +11,46 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    async function getData(){
-      try{
-        const res = await fetch('/recipes',{
-          method:'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        console.log("res home:  ",res);
-        const data = await res.json()
-        setLoading(false)
-        setRecipes(data.data)
-        
-
-      }catch(error){
-        console.log(error);
-      }
-      
-    }
-    getData()
-    }, []);
-
-
   // useEffect(() => {
   //   setLoading(true);
-  //   axios
-  //   .get('/backend/recipes')
-  //   .then((res)=>{
-  //     setRecipes(res.data.data);
-  //     console.log(res);
-  //     setLoading(false);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //     setLoading(false);
-  //   });
+  //   async function getData(){
+  //     try{
+  //       const res = await fetch('/recipes',{
+  //         method:'GET',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //       })
+  //       console.log("res home:  ",res);
+  //       const data = await res.json()
+  //       setLoading(false)
+  //       setRecipes(data.data)
+        
 
-  // }, []);
+  //     }catch(error){
+  //       console.log(error);
+  //     }
+      
+  //   }
+  //   getData()
+  //   }, []);
+
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+    .get('/recipes')
+    .then((res)=>{
+      setRecipes(res.data.data);
+      console.log(res);
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.log(error);
+      setLoading(false);
+    });
+
+  }, []);
 
   return (
     <div>
