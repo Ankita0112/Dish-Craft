@@ -17,7 +17,7 @@ const Home = () => {
     async function getData(){
       axios.get('/backend/recipes')
       .then((res)=>{
-        // console.log(res.data.data);
+        console.log(res.data.data);
         setRecipes(res.data.data)
         setLoading(false)
       })
