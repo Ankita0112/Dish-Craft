@@ -10,34 +10,26 @@ const ShowFav = () => {
   const [loading,setLoading] = useState(false);
   const {id} = useParams();
 
-  useEffect(()=>{
+
+  useEffect(() => {
     setLoading(true);
-    axios
-      .get(`http://localhost:3000/backend/recipes/${id}`)
-      .then((res)=>{
-        setRecipe(res.data);
-        setLoading(false);
-      })
-      .catch((error)=>{
+    async function getData(){
+      try{
+        const res = await fetch(`/backend/recipes/${id}`,{
+          method:'GET',
+        })
+        const data = await res.json()
+        setLoading(false)
+        setRecipe(data)
+        // console.log(data);
+
+      }catch(error){
         console.log(error);
-        setLoading(false);
-      })
-  }, [])
-  // let bool;
-  // const Instructions = [];
+      }
+    }
+    getData()
 
-  // const instructionsString = String(recipe.Instructions);
-  // instructionsString.replace("\n","");
-  // const instructionsObj = instructionsString.split(".");
-
-
-
-  
-// console.log(instructionsString);
-//   for (let i = 0; i < (instructionsObj.length)-1; i++) {
-    
-//     console.log((i+1) + ":" + instructionsObj[i] + ".");
-//   }
+  }, []);
 
 
   return (
@@ -46,12 +38,9 @@ const ShowFav = () => {
         <Link to={`/favourites`}>
         <ArrowBackIosNewIcon sx={{ fontSize: 30 }} className='text-black m-3'/>
         </Link>
-        {/* <h1 className='text-3xl my-4'>Show Recipe</h1> */}
         {loading ? (
           <Spinner />
-            // <div>
-            //     hi
-            // </div>
+
         ) : (
           <div className='flex justify-center'>
               <div className='flex flex-col border-2 bg-white border-black rounded-xl w-fit mx-56 my-6 p-4'>
