@@ -11,11 +11,11 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  
+
   useEffect(() => {
     setLoading(true);
     axios
-    .get('/backend/recipes')
+    .get('http://localhost:3000/backend/recipes')
     .then((res)=>{
       setRecipes(res.data.data);
       setLoading(false);
