@@ -139,7 +139,7 @@ const RecipeSingleCard = ({recipe}) => {
         <div key={recipe._id} className=" max-w-sm relative mt-10 h-80 ms-12 bg-gray-800 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             
             <a href="#">
-                <img className="rounded-t-lg object-cover h-48 w-full" src={"Food_Images/"+recipe.Image_Name+".jpg"} alt="" />
+                <img className="rounded-t-lg object-cover h-48 w-full" src={"/Food_Images/"+recipe.Image_Name+".jpg"} alt="" />
             </a>
             <div className="p-5 ">
                 <Link to={`/recipes/details/${recipe.id}`}>  
