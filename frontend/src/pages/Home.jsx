@@ -21,10 +21,10 @@ const Home = () => {
             'Content-Type': 'application/json',
           },
         })
-        // const data = await res.json()
+        const data = await res.json()
         setLoading(false)
-        setRecipes(res.data)
-        console.log("hi:  ",res);
+        setRecipes(data.data)
+        console.log("hi:  ",data);
 
       }catch(error){
         console.log(error);
