@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-    .get('http://localhost:3000/backend/recipes')
+    .get('/backend/recipes')
     .then((res)=>{
       setRecipes(res.data.data);
       setLoading(false);
