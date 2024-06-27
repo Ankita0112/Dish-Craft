@@ -11,24 +11,27 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
-  useEffect(() => {
-    setLoading(true);
-    async function getData(){
-      axios.get('/backend/recipes')
-      .then((res)=>{
-        console.log(res.data.data);
-        setRecipes(res.data.data)
-        setLoading(false)
-      })
-      .catch((error)=>{
-        console.log(error);
-        setLoading(false)
-      })
-    }
-    getData()
+    useEffect(() => {
+      async function getData(){
+        setLoading(true);
+        try {
+          const res = await fetch('/backend/recipes', {
+            method: 'GET',
+          });
+          const data = await res.json();
+          setRecipes(data.data)
+          console.log(data.data);
+          setLoading(false) 
+        } catch (error) {
+          console.log(error);
+          setLoading(false)
+        }
+      }
+      getData()
+    
 
   }, []);
+
 
   return (
     <div>
