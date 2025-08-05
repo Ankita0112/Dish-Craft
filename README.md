@@ -122,4 +122,72 @@ The application is structured for **scalability, maintainability**, and **ease o
 
 ---
 
+---
+
+## 🧪 Local Setup Instructions
+
+Follow these steps to run the project locally:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Ankita0112/Dish-Craft.git
+cd Dish-Craft
+```
+
+---
+
+### 2. Install Backend Dependencies
+
+```bash
+cd backend
+npm install
+```
+
+> 🔐 Create a `.env` file with:
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+---
+
+### 3. Install Frontend Dependencies
+
+```bash
+cd ../frontend
+npm install
+```
+
+---
+
+### 4. Start Backend Server
+
+```bash
+cd ../backend
+npm start
+```
+
+* Runs at: `http://localhost:5000`
+
+---
+
+### 5. Start Frontend Server
+
+```bash
+cd ../frontend
+npm run dev
+```
+
+* Runs at: `http://localhost:5173`
+
+---
+
+### 6. Open the App
+
+Visit `http://localhost:5173` in your browser to use Dish Craft.
+
+---
 
